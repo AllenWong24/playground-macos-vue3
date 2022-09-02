@@ -9,6 +9,14 @@ const booting = ref(false);
 const restart = ref(false);
 const sleep = ref(false);
 
+const setLogin = (val: boolean) => {
+  login.value = val;
+};
+
+const setBooting = (val: boolean) => {
+  booting.value = val;
+};
+
 const shutMac = (): void => {
   restart.value = false;
   sleep.value = false;
@@ -32,38 +40,24 @@ const sleepMac = (): void => {
 </script>
 
 <template>
-  <div>
-    <Boot
-      v-if="booting"
-      :restart="restart"
-      :sleep="sleep"
-      @changeBooting="
-        (val: boolean) => {
-          booting = val;
-        }
-      "
-    />
-    <Desktop
-      v-else-if="login"
-      @changeLogin="
-        (val: boolean) => {
-          login = val;
-        }
-      "
-      @shutMac="shutMac"
-      @sleepMac="sleepMac"
-      @restartMac="restartMac"
-    />
-    <Login
-      v-else
-      @changeLogin="
-        (val: boolean) => {
-          login = val;
-        }
-      "
-      @shutMac="shutMac"
-      @sleepMac="sleepMac"
-      @restartMac="restartMac"
-    />
-  </div>
+  <Boot
+    v-if="booting"
+    :restart="restart"
+    :sleep="sleep"
+    @setBooting="setBooting"
+  />
+  <Desktop
+    v-else-if="login"
+    @setLogin="setLogin"
+    @shutMac="shutMac"
+    @sleepMac="sleepMac"
+    @restartMac="restartMac"
+  />
+  <Login
+    v-else
+    @setLogin="setLogin"
+    @shutMac="shutMac"
+    @sleepMac="sleepMac"
+    @restartMac="restartMac"
+  />
 </template>

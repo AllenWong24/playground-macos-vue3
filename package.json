@@ -16,8 +16,12 @@
     "vue": "^3.2.31"
   },
   "devDependencies": {
+    "@iconify-json/carbon": "^1.1.7",
+    "@iconify-json/gg": "^1.1.2",
+    "@iconify-json/twemoji": "^1.1.5",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.26",
+    "@unocss/preset-icons": "^0.45.14",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",

@@ -9,4 +9,11 @@ interface Emit {
 const emit = defineEmits<Emit>();
 </script>
 
-<template>Login</template>
+<template>
+  <div>
+    Login
+    <div class="i-gg:sleep"></div>
+    <div class="i-twemoji:sleepy-face"></div>
+    <div class="i-carbon:asleep-filled"></div>
+  </div>
+</template>

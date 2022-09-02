@@ -4,6 +4,7 @@ import {
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
+  presetIcons,
 } from "unocss";
 
 export default defineConfig({
@@ -55,6 +56,13 @@ export default defineConfig({
     ["rounded-xs", { "border-radius": "1px" }],
     ["leading-cc", { "line-height": "0.9rem" }],
   ],
-  presets: [presetUno(), presetAttributify()],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+    }),
+  ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 });
