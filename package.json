@@ -16,9 +16,7 @@
     "vue": "^3.2.31"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.7",
-    "@iconify-json/gg": "^1.1.2",
-    "@iconify-json/twemoji": "^1.1.5",
+    "@iconify/json": "^2.1.104",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.26",
     "@unocss/preset-icons": "^0.45.14",

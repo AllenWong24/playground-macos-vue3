@@ -1,9 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@iconify-json/carbon': ^1.1.7
-  '@iconify-json/gg': ^1.1.2
-  '@iconify-json/twemoji': ^1.1.5
+  '@iconify/json': ^2.1.104
   '@rushstack/eslint-patch': ^1.1.0
   '@types/node': ^16.11.26
   '@unocss/preset-icons': ^0.45.14
@@ -32,9 +30,7 @@ dependencies:
   vue: 3.2.33
 
 devDependencies:
-  '@iconify-json/carbon': 1.1.7
-  '@iconify-json/gg': 1.1.2
-  '@iconify-json/twemoji': 1.1.5
+  '@iconify/json': 2.1.104
   '@rushstack/eslint-patch': 1.1.3
   '@types/node': 16.11.33
   '@unocss/preset-icons': 0.45.14
@@ -125,22 +121,11 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify-json/carbon/1.1.7:
-    resolution: {integrity: sha512-QULSpNWKaX4auIbjITDynfALdJYvOOy/xZb+aLOqCgvpBcmbz5tbqvow4r25FWtVsi4FHVpNQ8vyJZXsD1Hlxg==}
+  /@iconify/json/2.1.104:
+    resolution: {integrity: sha512-wPD/EzHNbGKjPumkyXSVF0EMb6dEBmR50yButPl35aW1/AO9TcJiVpCbvVk9iwpfje+yx/pfaFdY6L78sOUuMw==}
     dependencies:
       '@iconify/types': 1.1.0
-    dev: true
-
-  /@iconify-json/gg/1.1.2:
-    resolution: {integrity: sha512-JHTw0OeMSiGEDcQcNIUtVdkzUCQ/o+TeNsKpr2SGyzJ6etl1LK1aBhXfTrdpgB84iaMp/+FYFpD1+ju4HkoE7Q==}
-    dependencies:
-      '@iconify/types': 1.1.0
-    dev: true
-
-  /@iconify-json/twemoji/1.1.5:
-    resolution: {integrity: sha512-1sTyrLUrMF7QhXS8a9XOd2ySgxgESQTRvhtN471QFdqIaXMi7oWB5UUFh0z984s/al4Iclet+O8BZfuhM9t7lg==}
-    dependencies:
-      '@iconify/types': 1.1.0
+      pathe: 0.3.3
     dev: true
 
   /@iconify/types/1.1.0:
