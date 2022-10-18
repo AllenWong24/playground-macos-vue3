@@ -4,12 +4,14 @@ import { ref } from "vue";
 import { useSystemStore } from "@/stores/system";
 import { storeToRefs } from "pinia";
 
-const emit = defineEmits<{
+interface Emit {
   (e: "setLogin", val: boolean): void;
   (e: "shutMac"): void;
   (e: "sleepMac"): void;
   (e: "restartMac"): void;
-}>();
+}
+
+const emit = defineEmits<Emit>();
 
 const password = ref("");
 const sign = ref("Click to enter");
