@@ -1,4 +1,4 @@
-// import apps from "./apps";
+import apps from "./apps";
 // import bear from "./bear";
 // import launchpadApps from "./launchpad";
 // import music from "./music";
