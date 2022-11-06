@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-// TODO: find a webcamjs
+// TODO find a webcamjs
 const click = ref(false);
 const img = ref("");
 </script>

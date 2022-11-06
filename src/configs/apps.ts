@@ -1,6 +1,6 @@
 import type { Component } from "vue";
 import FaceTime from "@/components/apps/FaceTime.vue";
-// import Terminal from "@/components/apps/Terminal";
+import Terminal from "@/components/apps/Terminal/Terminal.vue";
 // import Safari from "@/components/apps/Safari";
 // import Bear from "@/components/apps/Bear";
 // import VSCode from "@/components/apps/VSCode";
