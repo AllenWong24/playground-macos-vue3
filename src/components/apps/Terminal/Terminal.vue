@@ -7,4 +7,7 @@ interface TerminalState {
 }
 </script>
 
-<template>terminal</template>
+<template>
+  <!-- TODO Terminal.vue-->
+  <div>terminal</div>
+</template>

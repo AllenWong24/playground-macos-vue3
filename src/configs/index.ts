@@ -8,12 +8,12 @@ import wallpapers from "./wallpapers";
 // import websites from "./websites";
 
 export {
-  // apps,
-  // bear,
-  // launchpadApps,
-  // music,
-  // terminal,
+  apps,
+  // TODO bear,
+  // TODO launchpadApps,
+  // TODO music,
+  // TODO terminal,
   user,
   wallpapers,
-  // websites
+  // TODO websites
 };

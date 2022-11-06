@@ -34,7 +34,7 @@ const apps: AppsData[] = [
     width: 860,
     height: 500,
     img: "img/icons/bear.png",
-    content: Bear,
+    // TODO content: Bear,
   },
   {
     id: "safari",
@@ -45,7 +45,7 @@ const apps: AppsData[] = [
     minWidth: 375,
     minHeight: 200,
     img: "img/icons/safari.png",
-    content: Safari,
+    // TODO content: Safari,
   },
   {
     id: "vscode",
@@ -53,7 +53,7 @@ const apps: AppsData[] = [
     desktop: true,
     show: false,
     img: "img/icons/vscode.png",
-    content: VSCode,
+    // TODO content: VSCode,
   },
   {
     id: "facetime",
