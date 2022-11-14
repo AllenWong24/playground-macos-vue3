@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// TODO import TopBar from "@/components/menus/TopBar";
+import TopBar from "@/components/menus/TopBar.vue";
 // TODO import Dock from "@/components/dock/Dock";
 // TODO import Launchpad from "@/components/Launchpad";
 // TODO import Window from "@/components/Window";
@@ -250,7 +250,7 @@ const openApp = (id: string): void => {
         >
           {{ app.content }}
         </Window>
-        <div v-else />
+        <div v-else></div>
       </template>
     </div>
 
