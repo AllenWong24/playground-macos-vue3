@@ -83,16 +83,16 @@ onUnmounted(() => {
 <template>
   <div
     id="how-dare-container"
-    className="fixed w-full h-full bg-black text-white"
+    class="fixed w-full h-full bg-black text-white"
     @click="() => props.setRMRF(false)"
   >
     <canvas id="how-dare"></canvas>
     <div
-      className="font-avenir absolute text-center h-28 mx-auto -mt-20 bottom-0 left-0 right-0 top-1/2"
+      class="font-avenir absolute text-center h-28 mx-auto -mt-20 bottom-0 left-0 right-0 top-1/2"
     >
-      <div className="text-4xl">{{ emoji }}</div>
-      <div className="text-3xl mt-4">HOW DARE YOU!</div>
-      <div className="mt-4">Click to go back</div>
+      <div class="text-4xl">{{ emoji }}</div>
+      <div class="text-3xl mt-4">HOW DARE YOU!</div>
+      <div class="mt-4">Click to go back</div>
     </div>
   </div>
 </template>
