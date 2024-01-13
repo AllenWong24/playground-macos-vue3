@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import Boot from './pages/Boot.vue'
-import Desktop from './pages/Desktop.vue'
-import Login from './pages/Login.vue'
-
 const login = ref(false)
 const booting = ref(false)
 const restart = ref(false)

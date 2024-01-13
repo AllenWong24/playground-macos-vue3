@@ -1,15 +1,4 @@
 <script setup lang="ts">
-import { reactive, ref, watchEffect } from 'vue'
-import { storeToRefs } from 'pinia'
-import TopBar from '@/components/menus/TopBar.vue'
-
-// TODO import Dock from "@/components/dock/Dock";
-// TODO import Launchpad from "@/components/Launchpad";
-// TODO import Window from "@/components/Window";
-// TODO import Spotlight from "@/components/Spotlight";
-import { apps, wallpapers } from '@/configs'
-import { useSystemStore } from '@/stores/system'
-
 interface Emit {
   (e: 'setLogin', val: boolean): void
   (e: 'shutMac'): void

@@ -1,6 +1,3 @@
-import { defineStore } from 'pinia'
-import { enterFullScreen, exitFullScreen } from '@/utils'
-
 export const useSystemStore = defineStore({
   id: 'system',
 

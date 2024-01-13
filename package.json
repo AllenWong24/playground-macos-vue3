@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.2",
-    "@iconify-json/carbon": "^1.1.27",
+    "@iconify/json": "^2.2.168",
     "@unocss/eslint-plugin": "^0.58.3",
     "@unocss/preset-icons": "^0.45.30",
     "@vitejs/plugin-vue": "^5.0.3",
@@ -26,7 +26,10 @@
     "eslint-plugin-format": "^0.1.0",
     "typescript": "^5.3.3",
     "unocss": "^0.58.1",
+    "unplugin-auto-import": "^0.17.3",
+    "unplugin-vue-components": "^0.26.0",
     "vite": "^5.0.10",
+    "vite-plugin-vue-devtools": "^7.0.8",
     "vue-tsc": "^1.8.27"
   }
 }

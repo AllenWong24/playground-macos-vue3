@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref, watch, watchEffect } from 'vue'
-import { useIntervalFn } from '@vueuse/core'
-
 interface Props {
   restart: boolean
   sleep: boolean

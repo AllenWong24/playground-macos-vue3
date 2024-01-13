@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 // TODO find a webcamjs
 const click = ref(false)
 const img = ref('')
@@ -11,7 +9,7 @@ const img = ref('')
     <img
       v-if="img"
       className="border-8 border-white max-h-60 md:max-h-96"
-      src="{img}"
+      :src="img"
       alt="yourimage"
     >
     <button

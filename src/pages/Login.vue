@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { storeToRefs } from 'pinia'
-import { user, wallpapers } from '@/configs'
-import { useSystemStore } from '@/stores/system'
-
 interface Emit {
   (e: 'setLogin', val: boolean): void
   (e: 'shutMac'): void

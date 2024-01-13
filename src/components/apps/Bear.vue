@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-
 interface ContentProps {
   contentID: string
   contentURL: string
@@ -41,7 +39,7 @@ function setContent(id: string, url: string, index: number) {
 </script>
 
 <template>
-  <div class="font-avenir bear h-full w-full flex">
+  <div class="bear font-avenir h-full w-full flex">
     <div class="w-44 flex-none">
       <Sidebar cur="{state.curSidebar}" set-mid-bar="{setMidBar}" />
     </div>
