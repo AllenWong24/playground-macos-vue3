@@ -1,8 +1,8 @@
-import { defineStore } from "pinia";
-import { enterFullScreen, exitFullScreen } from "@/utils";
+import { defineStore } from 'pinia'
+import { enterFullScreen, exitFullScreen } from '@/utils'
 
 export const useSystemStore = defineStore({
-  id: "system",
+  id: 'system',
 
   state: () => ({
     dark: false,
@@ -16,37 +16,36 @@ export const useSystemStore = defineStore({
 
   actions: {
     toggleDark(value: boolean) {
-      this.dark = value;
-      if (value) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
+      this.dark = value
+      if (value)
+        document.documentElement.classList.add('dark')
+      else
+        document.documentElement.classList.remove('dark')
     },
 
     setVolume(value: number) {
-      this.volume = value;
+      this.volume = value
     },
 
     setBrightness(value: number) {
-      this.brightness = value;
+      this.brightness = value
     },
 
     toggleWIFI(value: boolean) {
-      this.wifi = value;
+      this.wifi = value
     },
 
     toggleBleutooth(value: boolean) {
-      this.bluetooth = value;
+      this.bluetooth = value
     },
 
     toggleAirdrop(value: boolean) {
-      this.airdrop = value;
+      this.airdrop = value
     },
 
     toggleFullScreen(value: boolean) {
-      value ? enterFullScreen() : exitFullScreen();
-      this.fullscreen = value;
+      value ? enterFullScreen() : exitFullScreen()
+      this.fullscreen = value
     },
   },
-});
+})

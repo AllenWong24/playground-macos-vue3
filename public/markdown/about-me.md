@@ -10,7 +10,6 @@ My research interests lie primarily in exploring the capability of machines to b
 
 I'm also learning to build machine learning softwares and systems. I'm also learning TypeScript, React and Vue.
 
-
 ## Contact
 
 Contact me by:
@@ -20,7 +19,6 @@ Contact me by:
 - Linkedin: [xiaohan-zou](https://www.linkedin.com/in/xiaohan-zou)
 - 知乎: [@Renovamen](https://www.zhihu.com/people/chao-neng-gui-su)
 - Blog: [zxh.io](https://zxh.io)
-
 
 ## Résumé
 

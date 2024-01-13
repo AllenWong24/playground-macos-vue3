@@ -1,18 +1,18 @@
 <script setup lang="ts">
 interface Emit {
-  (e: "click"): void;
+  (e: 'click'): void
 }
 
-const emit = defineEmits<Emit>();
+const emit = defineEmits<Emit>()
 </script>
 
 <template>
   <li
-    @click="emit('click')"
-    class="px-5 leading-6 cursor-default"
+    class="cursor-default px-5 leading-6"
     text="black hover:white dark:(white hover:black)"
     bg="hover:blue-500 dark:hover:blue-400"
+    @click="emit('click')"
   >
-    <slot></slot>
+    <slot />
   </li>
 </template>

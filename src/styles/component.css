@@ -78,7 +78,9 @@ html.dark .spotlight .spotlight-type {
 
 .dock li:hover .tooltip {
   @apply block;
-  box-shadow: hsla(0deg, 0%, 0%, 20%) 0px 1px 5px 2px, 0 0 0 0 white;
+  box-shadow:
+    hsla(0deg, 0%, 0%, 20%) 0px 1px 5px 2px,
+    0 0 0 0 white;
 }
 
 /* --------- slider --------- */
@@ -112,7 +114,6 @@ html.dark .slider .rangeslider .rangeslider__handle {
   @apply border-gray-600;
 }
 
-
 /*
   Credits: W3 Schools: https://www.w3schools.com/howto/howto_css_switch.asp
 */
@@ -137,11 +138,11 @@ html.dark .slider .rangeslider .rangeslider__handle {
 }
 
 input:checked + .slider-toggle {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider-toggle {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider-toggle:before {

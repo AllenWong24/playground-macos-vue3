@@ -1,6 +1,6 @@
 const wallpapers: WallpaperData = {
-  day: "img/ui/wallpaper-day.jpg",
-  night: "img/ui/wallpaper-night.jpg",
-};
+  day: 'img/ui/wallpaper-day.jpg',
+  night: 'img/ui/wallpaper-night.jpg',
+}
 
-export default wallpapers;
+export default wallpapers

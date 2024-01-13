@@ -28,7 +28,7 @@
 }
 
 .bear .markdown h1::before {
-  content: "H1";
+  content: 'H1';
 }
 
 .bear .markdown h2 {
@@ -36,7 +36,7 @@
 }
 
 .bear .markdown h2::before {
-  content: "H2";
+  content: 'H2';
 }
 
 .bear .markdown h3 {
@@ -44,7 +44,7 @@
 }
 
 .bear .markdown h3::before {
-  content: "H3";
+  content: 'H3';
 }
 
 .bear .markdown h3 {
@@ -56,7 +56,7 @@
 }
 
 .bear .markdown h4::before {
-  content: "H4";
+  content: 'H4';
 }
 
 .bear .markdown p {
@@ -107,7 +107,7 @@
 }
 
 .bear .markdown .token {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 .bear .markdown img {
@@ -165,6 +165,6 @@ html.dark .bear .markdown pre code {
   font-size: 14px !important;
 }
 
-html.dark  .bear .markdown pre div {
+html.dark .bear .markdown pre div {
   @apply border-gray-600;
 }

@@ -1,44 +1,45 @@
 <script setup lang="ts">
-import TopBar from "@/components/menus/TopBar.vue";
+import { reactive, ref, watchEffect } from 'vue'
+import { storeToRefs } from 'pinia'
+import TopBar from '@/components/menus/TopBar.vue'
+
 // TODO import Dock from "@/components/dock/Dock";
 // TODO import Launchpad from "@/components/Launchpad";
 // TODO import Window from "@/components/Window";
 // TODO import Spotlight from "@/components/Spotlight";
-import { apps, wallpapers } from "@/configs";
-import { reactive, ref, watchEffect } from "vue";
-import { useSystemStore } from "@/stores/system";
-import { storeToRefs } from "pinia";
+import { apps, wallpapers } from '@/configs'
+import { useSystemStore } from '@/stores/system'
 
 interface Emit {
-  (e: "setLogin", val: boolean): void;
-  (e: "shutMac"): void;
-  (e: "restartMac"): void;
-  (e: "sleepMac"): void;
+  (e: 'setLogin', val: boolean): void
+  (e: 'shutMac'): void
+  (e: 'restartMac'): void
+  (e: 'sleepMac'): void
 }
 
-const emit = defineEmits<Emit>();
+const emit = defineEmits<Emit>()
 
 interface DesktopState {
   showApps: {
-    [key: string]: boolean;
-  };
+    [key: string]: boolean
+  }
   appsZ: {
-    [key: string]: number;
-  };
+    [key: string]: number
+  }
   maxApps: {
-    [key: string]: boolean;
-  };
+    [key: string]: boolean
+  }
   minApps: {
-    [key: string]: boolean;
-  };
-  maxZ: number;
-  showLaunchpad: boolean;
-  currentTitle: string;
-  hideDockAndTopbar: boolean;
-  spotlight: boolean;
+    [key: string]: boolean
+  }
+  maxZ: number
+  showLaunchpad: boolean
+  currentTitle: string
+  hideDockAndTopbar: boolean
+  spotlight: boolean
 }
 
-const minMarginY = 24;
+const minMarginY = 24
 
 const state = reactive<DesktopState>({
   showApps: {},
@@ -47,171 +48,172 @@ const state = reactive<DesktopState>({
   minApps: {},
   maxZ: 2,
   showLaunchpad: false,
-  currentTitle: "Finder",
+  currentTitle: 'Finder',
   hideDockAndTopbar: false,
   spotlight: false,
-});
+})
 
-const spotlightBtnRef = ref<HTMLDivElement | null>(null);
+const spotlightBtnRef = ref<HTMLDivElement | null>(null)
 
-const { dark, brightness } = storeToRefs(useSystemStore());
+const { dark, brightness } = storeToRefs(useSystemStore())
 
-const getAppsData = (): void => {
-  let showApps = {};
-  let appsZ = {};
-  let maxApps = {};
-  let minApps = {};
+function getAppsData(): void {
+  let showApps = {}
+  let appsZ = {}
+  let maxApps = {}
+  let minApps = {}
 
   apps.forEach((app) => {
     showApps = {
       ...showApps,
       [app.id]: app.show,
-    };
+    }
     appsZ = {
       ...appsZ,
       [app.id]: 2,
-    };
+    }
     maxApps = {
       ...maxApps,
       [app.id]: false,
-    };
+    }
     minApps = {
       ...minApps,
       [app.id]: false,
-    };
-  });
+    }
+  })
 
-  state.showApps = showApps;
-  state.appsZ = appsZ;
-  state.maxApps = maxApps;
-  state.minApps = minApps;
-};
+  state.showApps = showApps
+  state.appsZ = appsZ
+  state.maxApps = maxApps
+  state.minApps = minApps
+}
 
 watchEffect(() => {
-  getAppsData();
-});
+  getAppsData()
+})
 
-const toggleLaunchpad = (target: boolean): void => {
-  const r = document.querySelector(`#launchpad`) as HTMLElement;
+function toggleLaunchpad(target: boolean): void {
+  const r = document.querySelector(`#launchpad`) as HTMLElement
   if (target) {
-    r.style.transform = "scale(1)";
-    r.style.transition = "ease-in 0.2s";
-  } else {
-    r.style.transform = "scale(1.1)";
-    r.style.transition = "ease-out 0.2s";
+    r.style.transform = 'scale(1)'
+    r.style.transition = 'ease-in 0.2s'
+  }
+  else {
+    r.style.transform = 'scale(1.1)'
+    r.style.transition = 'ease-out 0.2s'
   }
 
-  state.showLaunchpad = target;
-};
+  state.showLaunchpad = target
+}
 
-const toggleSpotlight = (): void => {
-  state.spotlight = !state.spotlight;
-};
+function toggleSpotlight(): void {
+  state.spotlight = !state.spotlight
+}
 
-const setWinowsPosition = (id: string): void => {
-  const r = document.querySelector(`#window-${id}`) as HTMLElement;
-  const rect = r.getBoundingClientRect();
+function setWinowsPosition(id: string): void {
+  const r = document.querySelector(`#window-${id}`) as HTMLElement
+  const rect = r.getBoundingClientRect()
   r.style.setProperty(
-    "--window-transform-x",
+    '--window-transform-x',
     // "+ window.innerWidth" because of the boundary for windows
-    (window.innerWidth + rect.x).toFixed(1).toString() + "px"
-  );
+    `${(window.innerWidth + rect.x).toFixed(1).toString()}px`,
+  )
   r.style.setProperty(
-    "--window-transform-y",
+    '--window-transform-y',
     // "- minMarginY" because of the boundary for windows
-    (rect.y - minMarginY).toFixed(1).toString() + "px"
-  );
-};
+    `${(rect.y - minMarginY).toFixed(1).toString()}px`,
+  )
+}
 
-const setAppMax = (id: string, target?: boolean): void => {
-  const maxApps = state.maxApps;
-  if (target === undefined) {
-    target = !maxApps[id];
-  }
-  maxApps[id] = target;
-  state.maxApps = maxApps;
-  state.hideDockAndTopbar = target;
-};
+function setAppMax(id: string, target?: boolean): void {
+  const maxApps = state.maxApps
+  if (target === undefined)
+    target = !maxApps[id]
 
-const setAppMin = (id: string, target?: boolean): void => {
-  const minApps = state.minApps;
-  if (target === undefined) {
-    target = !minApps[id];
-  }
-  minApps[id] = target;
-  state.minApps = minApps;
-};
+  maxApps[id] = target
+  state.maxApps = maxApps
+  state.hideDockAndTopbar = target
+}
 
-const minimizeApp = (id: string): void => {
-  setWinowsPosition(id);
+function setAppMin(id: string, target?: boolean): void {
+  const minApps = state.minApps
+  if (target === undefined)
+    target = !minApps[id]
+
+  minApps[id] = target
+  state.minApps = minApps
+}
+
+function minimizeApp(id: string): void {
+  setWinowsPosition(id)
 
   // get the corrosponding dock icon's position
-  let r = document.querySelector(`#dock-${id}`) as HTMLElement;
-  const dockAppRect = r.getBoundingClientRect();
+  let r = document.querySelector(`#dock-${id}`) as HTMLElement
+  const dockAppRect = r.getBoundingClientRect()
 
-  r = document.querySelector(`#window-${id}`) as HTMLElement;
+  r = document.querySelector(`#window-${id}`) as HTMLElement
   // const appRect = r.getBoundingClientRect();
-  const posY = window.innerHeight - r.offsetHeight / 2 - minMarginY;
+  const posY = window.innerHeight - r.offsetHeight / 2 - minMarginY
   // "+ window.innerWidth" because of the boundary for windows
-  const posX = window.innerWidth + dockAppRect.x - r.offsetWidth / 2 + 25;
+  const posX = window.innerWidth + dockAppRect.x - r.offsetWidth / 2 + 25
 
   // translate the window to that position
-  r.style.transform = `translate(${posX}px, ${posY}px) scale(0.2)`;
-  r.style.transition = "ease-out 0.3s";
+  r.style.transform = `translate(${posX}px, ${posY}px) scale(0.2)`
+  r.style.transition = 'ease-out 0.3s'
 
   // add it to the minimized app list
-  setAppMin(id, true);
-};
+  setAppMin(id, true)
+}
 
-const closeApp = (id: string): void => {
-  setAppMax(id, false);
-  const showApps = state.showApps;
-  showApps[id] = false;
-  state.showApps = showApps;
-  state.hideDockAndTopbar = false;
-};
+function closeApp(id: string): void {
+  setAppMax(id, false)
+  const showApps = state.showApps
+  showApps[id] = false
+  state.showApps = showApps
+  state.hideDockAndTopbar = false
+}
 
-const openApp = (id: string): void => {
+function openApp(id: string): void {
   // add it to the shown app list
-  const showApps = state.showApps;
-  showApps[id] = true;
+  const showApps = state.showApps
+  showApps[id] = true
 
   // move to the top (use a maximum z-index)
-  const appsZ = state.appsZ;
-  const maxZ = state.maxZ + 1;
-  appsZ[id] = maxZ;
+  const appsZ = state.appsZ
+  const maxZ = state.maxZ + 1
+  appsZ[id] = maxZ
 
   // get the title of the currently opened app
   const currentApp = apps.find((app) => {
-    return app.id === id;
-  });
-  if (currentApp === undefined) {
-    throw new TypeError(`App ${id} is undefined.`);
-  }
-  state.showApps = showApps;
-  state.appsZ = appsZ;
-  state.maxZ = maxZ;
-  state.currentTitle = currentApp.title;
+    return app.id === id
+  })
+  if (currentApp === undefined)
+    throw new TypeError(`App ${id} is undefined.`)
 
-  const minApps = state.minApps;
+  state.showApps = showApps
+  state.appsZ = appsZ
+  state.maxZ = maxZ
+  state.currentTitle = currentApp.title
+
+  const minApps = state.minApps
   // if the app has already been shown but minimized
   if (minApps[id]) {
     // move to window's last position
-    const r = document.querySelector(`#window-${id}`) as HTMLElement;
+    const r = document.querySelector(`#window-${id}`) as HTMLElement
     r.style.transform = `translate(${r.style.getPropertyValue(
-      "--window-transform-x"
-    )}, ${r.style.getPropertyValue("--window-transform-y")}) scale(1)`;
-    r.style.transition = "ease-in 0.3s";
+      '--window-transform-x',
+    )}, ${r.style.getPropertyValue('--window-transform-y')}) scale(1)`
+    r.style.transition = 'ease-in 0.3s'
     // remove it from the minimized app list
-    minApps[id] = false;
-    state.minApps = minApps;
+    minApps[id] = false
+    state.minApps = minApps
   }
-};
+}
 </script>
 
 <template>
   <div
-    class="w-full h-full overflow-hidden bg-center bg-cover"
+    class="h-full w-full overflow-hidden bg-cover bg-center"
     :style="{
       backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
       filter: `brightness( ${brightness * 0.7 + 50}% )`,
@@ -220,59 +222,59 @@ const openApp = (id: string): void => {
     <!-- Top Menu Bar -->
     <TopBar
       title="{state.currentTitle}"
-      setLogin="{props.setLogin}"
-      shutMac="{props.shutMac}"
-      sleepMac="{props.sleepMac}"
-      restartMac="{props.restartMac}"
-      toggleSpotlight="{toggleSpotlight}"
+      set-login="{props.setLogin}"
+      shut-mac="{props.shutMac}"
+      sleep-mac="{props.sleepMac}"
+      restart-mac="{props.restartMac}"
+      toggle-spotlight="{toggleSpotlight}"
       hide="{state.hideDockAndTopbar}"
-      setSpotlightBtnRef="{setSpotlightBtnRef}"
+      set-spotlight-btn-ref="{setSpotlightBtnRef}"
     />
 
     <!-- Desktop Apps -->
-    <div class="window-bound z-10 absolute" :style="{ top: minMarginY }">
+    <div class="window-bound absolute z-10" :style="{ top: minMarginY }">
       <template v-for="app in apps" :key="`desktop-app-${app.id}`">
         <Window
           v-if="app.desktop && state.showApps[app.id]"
-          :title="app.title"
           :id="app.id"
+          :title="app.title"
           :width="app.width"
           :height="app.height"
-          :minWidth="app.minWidth"
-          :minHeight="app.minHeight"
+          :min-width="app.minWidth"
+          :min-height="app.minHeight"
           :z="state.appsZ[app.id]"
           :max="state.maxApps[app.id]"
           :min="state.minApps[app.id]"
           @close="closeApp"
-          @setMax="setAppMax"
-          @setMin="minimizeApp"
+          @set-max="setAppMax"
+          @set-min="minimizeApp"
           @focus="openApp"
         >
           {{ app.content }}
         </Window>
-        <div v-else></div>
+        <div v-else />
       </template>
     </div>
 
     <!-- Spotlight -->
     <Spotlight
       v-if="state.spotlight"
-      @openApp="openApp"
-      @toggleLaunchpad="toggleLaunchpad"
-      @toggleSpotlight="toggleSpotlight"
-      :btnRef="spotlightBtnRef"
+      :btn-ref="spotlightBtnRef"
+      @open-app="openApp"
+      @toggle-launchpad="toggleLaunchpad"
+      @toggle-spotlight="toggleSpotlight"
     />
 
     <!-- Launchpad -->
-    <Launchpad :show="state.showLaunchpad" @toggleLaunchpad="toggleLaunchpad" />
+    <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" />
 
     <!-- Dock -->
     <Dock
-      @open="openApp"
-      :showApps="state.showApps"
-      :showLaunchpad="state.showLaunchpad"
-      @toggleLaunchpad="toggleLaunchpad"
+      :show-apps="state.showApps"
+      :show-launchpad="state.showLaunchpad"
       :hide="state.hideDockAndTopbar"
+      @open="openApp"
+      @toggle-launchpad="toggleLaunchpad"
     />
   </div>
 </template>

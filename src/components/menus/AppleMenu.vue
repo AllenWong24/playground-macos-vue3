@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import { onClickOutside } from "@vueuse/core";
-import { ref } from "vue";
-import MenuItem from "./base/MenuItem.vue";
-import MenuItemGroup from "./base/MenuItemGroup.vue";
+import { onClickOutside } from '@vueuse/core'
+import { ref } from 'vue'
+import MenuItem from './base/MenuItem.vue'
+import MenuItemGroup from './base/MenuItemGroup.vue'
 
 interface Props {
-  toggleAppleMenu: () => void;
+  toggleAppleMenu: () => void
 }
 
 interface Emit {
-  (e: "logout"): void;
-  (e: "shut"): void;
-  (e: "restart"): void;
-  (e: "sleep"): void;
+  (e: 'logout'): void
+  (e: 'shut'): void
+  (e: 'restart'): void
+  (e: 'sleep'): void
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
-const emit = defineEmits<Emit>();
+const emit = defineEmits<Emit>()
 
-const target = ref(null);
-onClickOutside(target.value, props.toggleAppleMenu);
+const target = ref(null)
+onClickOutside(target.value, props.toggleAppleMenu)
 </script>
 
 <template>
   <div
-    class="menu-box top-6 left-4 w-56"
-    border="b l r rounded-b-lg"
     ref="target"
+    class="left-4 top-6 w-56 menu-box"
+    border="b l r rounded-b-lg"
   >
     <MenuItemGroup>
       <MenuItem>About This Mac</MenuItem>
@@ -43,13 +43,23 @@ onClickOutside(target.value, props.toggleAppleMenu);
       <MenuItem>Force Quit...</MenuItem>
     </MenuItemGroup>
     <MenuItemGroup>
-      <MenuItem @click="emit('sleep')">Sleep</MenuItem>
-      <MenuItem @click="emit('restart')">Restart...</MenuItem>
-      <MenuItem @click="emit('shut')">Shut Down...</MenuItem>
+      <MenuItem @click="emit('sleep')">
+        Sleep
+      </MenuItem>
+      <MenuItem @click="emit('restart')">
+        Restart...
+      </MenuItem>
+      <MenuItem @click="emit('shut')">
+        Shut Down...
+      </MenuItem>
     </MenuItemGroup>
     <MenuItemGroup :border="false">
-      <MenuItem @click="emit('logout')">Lock Screen</MenuItem>
-      <MenuItem @click="emit('logout')">Log Out Xiaohan Zou...</MenuItem>
+      <MenuItem @click="emit('logout')">
+        Lock Screen
+      </MenuItem>
+      <MenuItem @click="emit('logout')">
+        Log Out Xiaohan Zou...
+      </MenuItem>
     </MenuItemGroup>
   </div>
 </template>

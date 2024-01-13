@@ -1,42 +1,42 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Boot from "./pages/Boot.vue";
-import Desktop from "./pages/Desktop.vue";
-import Login from "./pages/Login.vue";
+import { ref } from 'vue'
+import Boot from './pages/Boot.vue'
+import Desktop from './pages/Desktop.vue'
+import Login from './pages/Login.vue'
 
-const login = ref(false);
-const booting = ref(false);
-const restart = ref(false);
-const sleep = ref(false);
+const login = ref(false)
+const booting = ref(false)
+const restart = ref(false)
+const sleep = ref(false)
 
-const setLogin = (val: boolean) => {
-  login.value = val;
-};
+function setLogin(val: boolean) {
+  login.value = val
+}
 
-const setBooting = (val: boolean) => {
-  booting.value = val;
-};
+function setBooting(val: boolean) {
+  booting.value = val
+}
 
-const shutMac = (): void => {
-  restart.value = false;
-  sleep.value = false;
-  login.value = false;
-  booting.value = true;
-};
+function shutMac(): void {
+  restart.value = false
+  sleep.value = false
+  login.value = false
+  booting.value = true
+}
 
-const restartMac = (): void => {
-  restart.value = true;
-  sleep.value = false;
-  login.value = false;
-  booting.value = true;
-};
+function restartMac(): void {
+  restart.value = true
+  sleep.value = false
+  login.value = false
+  booting.value = true
+}
 
-const sleepMac = (): void => {
-  restart.value = false;
-  sleep.value = true;
-  login.value = false;
-  booting.value = true;
-};
+function sleepMac(): void {
+  restart.value = false
+  sleep.value = true
+  login.value = false
+  booting.value = true
+}
 </script>
 
 <template>
@@ -44,21 +44,21 @@ const sleepMac = (): void => {
     v-if="booting"
     :restart="restart"
     :sleep="sleep"
-    @setBooting="setBooting"
+    @set-booting="setBooting"
   />
   <Desktop
     v-else-if="login"
-    @setLogin="setLogin"
-    @shutMac="shutMac"
-    @sleepMac="sleepMac"
-    @restartMac="restartMac"
+    @set-login="setLogin"
+    @shut-mac="shutMac"
+    @sleep-mac="sleepMac"
+    @restart-mac="restartMac"
   />
   <Login
     v-else
-    @setLogin="setLogin"
-    @shutMac="shutMac"
-    @sleepMac="sleepMac"
-    @restartMac="restartMac"
+    @set-login="setLogin"
+    @shut-mac="shutMac"
+    @sleep-mac="sleepMac"
+    @restart-mac="restartMac"
   />
 </template>
 
