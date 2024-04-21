@@ -54,7 +54,7 @@ const background = computed(() => {
           @keyup.enter="doLogin"
         >
         <div class="col-span-1 col-start-5 flex-center">
-          <Icon name="bi:question-square-fill" color="white" />
+          <Icon name="f7:question-square-fill" color="white" class="w-4/5 h-4/5" />
         </div>
       </div>
       <div class="mt-2 cursor-pointer text-sm text-gray-200">
@@ -86,7 +86,7 @@ const background = computed(() => {
       </div>
       <div
         class="w-24 flex-center-v flex-col cursor-pointer text-white"
-        @click="navigateTo('/boot/booting')"
+        @click="navigateTo('/boot/shutdown')"
       >
         <div class="h-10 w-10 inline-flex-center rounded-full bg-gray-700">
           <Icon name="i-ri-shut-down-line" class="h-full w-full text-base" />
