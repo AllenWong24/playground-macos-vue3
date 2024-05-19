@@ -1,13 +1,18 @@
 <script setup lang="ts">
+useHead({
+  title: 'Login',
+})
+
+const systemStore = useSystemStore()
+const authStore = useAuthStore()
+
 const password = ref('')
 const sign = ref('Click to enter')
-const { state } = useSystemStore()
-const { login } = useAuthStore()
 
-function doLogin() {
-  if (USER_CONFIG.password === password.value) {
+function login() {
+  if (GLOBAL_CONFIG_USER.password === password.value || password.value === '') {
     // not set password or password correct
-    login(USER_CONFIG.name)
+    authStore.login(GLOBAL_CONFIG_USER.name)
     navigateTo('/desktop')
   }
   else if (password.value !== '') {
@@ -18,7 +23,7 @@ function doLogin() {
 
 const background = computed(() => {
   return `url(${
-    state.dark ? WALLPAPERS_CONFIG.night : WALLPAPERS_CONFIG.day
+    systemStore.dark ? GLOBAL_CONFIG_WALLPAPERS.night : GLOBAL_CONFIG_WALLPAPERS.day
   }) center/cover no-repeat`
 })
 </script>
@@ -27,17 +32,17 @@ const background = computed(() => {
   <div
     class="login h-full w-full text-center"
     :style="{ background }"
-    @click="doLogin"
+    @click="login"
   >
     <div class="relative top-1/2 inline-block w-auto -mt-40">
       <!-- Avatar -->
       <img
-        class="mx-auto my-0 h-24 w-24 rounded-full"
-        :src="USER_CONFIG.avatar"
+        class="mx-auto my-0 h-24 w-24 rounded-full backdrop-blur"
+        :src="GLOBAL_CONFIG_USER.avatar"
         alt="img"
       >
       <div class="mt-2 text-xl text-white font-semibold">
-        {{ USER_CONFIG.name }}
+        {{ GLOBAL_CONFIG_USER.name }}
       </div>
 
       <!-- Password Input -->
@@ -51,7 +56,7 @@ const background = computed(() => {
           type="password"
           placeholder="Enter Password"
           @click.stop="() => {}"
-          @keyup.enter="doLogin"
+          @keyup.enter="login"
         >
         <div class="col-span-1 col-start-5 flex-center">
           <Icon name="f7:question-square-fill" color="white" class="w-4/5 h-4/5" />

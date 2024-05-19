@@ -1,5 +1,7 @@
 export const useAuthStore = defineStore('auth', () => {
-  const token = useCookie('token')
+  const token = useCookie('token', {
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  })
 
   const isLogin = computed(() => !!token.value)
 
@@ -7,8 +9,14 @@ export const useAuthStore = defineStore('auth', () => {
     token.value = userName
   }
 
+  const logout = () => {
+    token.value = ''
+    navigateTo('/login')
+  }
+
   return {
     isLogin,
     login,
+    logout,
   }
 })

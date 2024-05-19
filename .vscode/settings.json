@@ -45,5 +45,11 @@
     "yaml"
   ],
 
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "pages/*.vue": "/${filename}.${extname}",
+    "pages/**": "/${dirname}/${filename}.${extname}"
+  }
 }

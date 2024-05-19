@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useHead({
+  title: 'Boot',
+})
+
 const route = useRoute()
 const isRestart = computed(() => route.params.mode === 'restart')
 const isSleep = computed(() => route.params.mode === 'sleep')

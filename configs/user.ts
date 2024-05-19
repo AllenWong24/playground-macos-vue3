@@ -1,5 +1,5 @@
-export const USER_CONFIG = readonly({
+export const GLOBAL_CONFIG_USER = readonly({
   name: 'Allen Wong',
-  avatar: 'img/ui/avatar.jpg',
+  avatar: 'img/ui/avatar.gif',
   password: '666',
 })

@@ -43,7 +43,7 @@ export const useSystemStore = defineStore('system', () => {
   }
 
   return {
-    state: readonly(state),
+    ...readonly(state),
     toggleDark,
     setVolume,
     setBrightness,
