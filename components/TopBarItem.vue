@@ -13,9 +13,11 @@ const emit = defineEmits(['click'])
 
 const hide = props.hideOnMobile ? 'hidden sm:inline-flex' : 'inline-flex'
 
-const hover = props.forceHover
-  ? 'bg-white bg-opacity-30 dark:(bg-black bg-opacity-30)'
-  : 'rounded hover:bg-white hover:bg-opacity-30 dark:(hover:bg-black hover:bg-opacity-30)'
+const hover = computed(() => (
+  props.forceHover
+    ? 'bg-white bg-opacity-30 dark:(bg-black bg-opacity-30)'
+    : 'rounded hover:bg-white hover:bg-opacity-30 dark:(hover:bg-black hover:bg-opacity-30)'
+))
 </script>
 
 <template>

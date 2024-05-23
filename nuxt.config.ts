@@ -21,7 +21,10 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['configs'],
   },
-  css: ['~/assets/css/index.css'],
+  css: [
+    '~/assets/css/index.css',
+    '@unocss/reset/tailwind.css',
+  ],
   eslint: {
     config: {
       stylistic: true,

@@ -3,7 +3,7 @@ useHead({
   title: 'Login',
 })
 
-const systemStore = useSystemStore()
+const { dark } = storeToRefs(useSystemStore())
 const authStore = useAuthStore()
 
 const password = ref('')
@@ -23,7 +23,7 @@ function login() {
 
 const background = computed(() => {
   return `url(${
-    systemStore.dark ? GLOBAL_CONFIG_WALLPAPERS.night : GLOBAL_CONFIG_WALLPAPERS.day
+    dark.value ? GLOBAL_CONFIG_WALLPAPERS.night : GLOBAL_CONFIG_WALLPAPERS.day
   }) center/cover no-repeat`
 })
 </script>

@@ -8,7 +8,7 @@ const emit = defineEmits<{
   (e: 'toggle-bar-item-type', type: string): void
 }>()
 
-const systemStore = useSystemStore()
+const { wifi } = storeToRefs(useSystemStore())
 
 const state = reactive({
   showControlCenter: false,
@@ -34,6 +34,7 @@ function toggleWifiMenu() {
   >
     <div class="flex-center-v space-x-4">
       <TopBarItem
+        id="appleMenu"
         :force-hover="state.showAppleMenu"
         @click="toggleAppleMenu"
       >
@@ -50,7 +51,7 @@ function toggleWifiMenu() {
         hide-on-mobile
         @click="toggleWifiMenu"
       >
-        <Icon v-if="systemStore.wifi" name="i-mdi-wifi" size="18" />
+        <Icon v-if="wifi" name="i-mdi-wifi" size="18" />
         <Icon v-else name="i-mdi-wifi-off" size="18" />
       </TopBarItem>
       <TopBarItem @click="emit('toggle-bar-item-type', 'spotlight')">
@@ -64,11 +65,7 @@ function toggleWifiMenu() {
   </div>
 
   <!-- Open this when clicking on Apple logo -->
-  <!-- <AppleMenu
-      v-if="state.showAppleMenu"
-      @logout="logout"
-      @toggle-apple-menu="toggleAppleMenu"
-    /> -->
+  <AppleMenu v-model:visible="state.showAppleMenu" btn-selector="#appleMenu" />
 
   <!-- Open this when clicking on Control Center button -->
   <!-- <ControlCenterMenu

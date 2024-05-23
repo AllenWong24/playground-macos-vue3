@@ -16,7 +16,7 @@ export default defineConfig({
     ['no-outline', 'outline-none focus:outline-none'],
     ['window-btn', 'w-3 h-3 text-black rounded-full inline-flex-center no-outline'],
     ['menu-box-border', 'border-gray-400 border-opacity-50 dark:(border-gray-500 border-opacity-50)'],
-    ['menu-box', 'border border-solid fixed shadow-base text-black bg-gray-200 bg-opacity-90 shadow-2xl menu-box-border dark:(text-white bg-gray-700 bg-opacity-90)'],
+    ['menu-box', 'border fixed shadow-base text-black bg-gray-200 bg-opacity-90 shadow-2xl menu-box-border dark:(text-white bg-gray-700 bg-opacity-90)'],
     ['safari-btn', 'h-6 outline-none focus:outline-none rounded flex-center border border-gray-300 dark:border-gray-600'],
     ['cc-btn', 'rounded-full p-2 bg-blue-500 text-white dark:(bg-blue-400 text-black)'],
     ['cc-btn-active', 'rounded-full p-2 bg-gray-400 bg-opacity-25 text-gray-700 dark:(bg-gray-500 bg-opacity-25 text-gray-200)'],
