@@ -76,6 +76,16 @@ watchEffect(() => {
   getAppsData()
 })
 
+function onToggleBarItemType(type: string) {
+  switch (type) {
+    case 'spotlight':
+      toggleSpotlight()
+      break
+    default:
+      break
+  }
+}
+
 function toggleLaunchpad(target: boolean): void {
   const r = document.querySelector(`#launchpad`) as HTMLElement
   if (target) {
@@ -207,11 +217,11 @@ function openApp(id: string): void {
     <TopBar
       :title="state.currentTitle"
       :hide="state.hideDockAndTopbar"
-      @toggle-spotlight="toggleSpotlight"
+      @toggle-bar-item-type="onToggleBarItemType"
     />
 
     <!-- Desktop Apps -->
-    <div class="window-bound absolute z-10" :style="{ top: minMarginY }">
+    <!-- <div class="window-bound absolute z-10" :style="{ top: minMarginY }">
       <template v-for="app in GLOBAL_CONFIG_APPS" :key="`desktop-app-${app.id}`">
         <Window
           v-if="app.desktop && state.showApps[app.id]"
@@ -233,27 +243,27 @@ function openApp(id: string): void {
         </Window>
         <div v-else />
       </template>
-    </div>
+    </div> -->
 
     <!-- Spotlight -->
-    <Spotlight
+    <!-- <Spotlight
       v-if="state.spotlight"
       :btn-ref="spotlightBtnRef"
       @open-app="openApp"
       @toggle-launchpad="toggleLaunchpad"
       @toggle-spotlight="toggleSpotlight"
-    />
+    /> -->
 
     <!-- Launchpad -->
-    <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" />
+    <!-- <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" /> -->
 
     <!-- Dock -->
-    <Dock
+    <!-- <Dock
       :show-apps="state.showApps"
       :show-launchpad="state.showLaunchpad"
       :hide="state.hideDockAndTopbar"
       @open="openApp"
       @toggle-launchpad="toggleLaunchpad"
-    />
+    /> -->
   </div>
 </template>

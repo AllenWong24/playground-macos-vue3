@@ -1,16 +1,14 @@
 export const useSystemStore = defineStore('system', () => {
-  const state = reactive({
-    dark: false,
-    volume: 100,
-    brightness: 80,
-    wifi: true,
-    bluetooth: true,
-    airdrop: true,
-    fullscreen: false,
-  })
+  const dark = ref(false)
+  const volume = ref(100)
+  const brightness = ref(80)
+  const wifi = ref(true)
+  const bluetooth = ref(true)
+  const airdrop = ref(true)
+  const fullscreen = ref(false)
 
   function toggleDark(value: boolean) {
-    state.dark = value
+    dark.value = value
     if (value)
       document.documentElement.classList.add('dark')
     else
@@ -18,32 +16,40 @@ export const useSystemStore = defineStore('system', () => {
   }
 
   function setVolume(value: number) {
-    state.volume = value
+    volume.value = value
   }
 
   function setBrightness(value: number) {
-    state.brightness = value
+    brightness.value = value
   }
 
   function toggleWIFI(value: boolean) {
-    state.wifi = value
+    wifi.value = value
   }
 
   function toggleBluetooth(value: boolean) {
-    state.bluetooth = value
+    bluetooth.value = value
   }
 
   function toggleAirdrop(value: boolean) {
-    state.airdrop = value
+    airdrop.value = value
   }
 
   function toggleFullScreen(value: boolean) {
     value ? enterFullScreen() : exitFullScreen()
-    state.fullscreen = value
+    fullscreen.value = value
   }
 
   return {
-    ...readonly(state),
+    // state
+    dark,
+    volume,
+    brightness,
+    wifi,
+    bluetooth,
+    airdrop,
+    fullscreen,
+    // actions
     toggleDark,
     setVolume,
     setBrightness,

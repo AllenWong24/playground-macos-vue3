@@ -5,7 +5,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  toggleBarType: [type: string]
+  (e: 'toggle-bar-item-type', type: string): void
 }>()
 
 const systemStore = useSystemStore()
@@ -46,16 +46,17 @@ function toggleWifiMenu() {
         <!-- <Battery /> -->
       </TopBarItem>
       <TopBarItem
+        id="wifiBtn"
         hide-on-mobile
         @click="toggleWifiMenu"
       >
         <Icon v-if="systemStore.wifi" name="i-mdi-wifi" size="18" />
         <Icon v-else name="i-mdi-wifi-off" size="18" />
       </TopBarItem>
-      <TopBarItem @click="emit('toggleBarType', 'spotlight')">
+      <TopBarItem @click="emit('toggle-bar-item-type', 'spotlight')">
         <Icon name="i-bi-search" size="17" />
       </TopBarItem>
-      <TopBarItem @click="emit('toggleBarType', 'control-center')">
+      <TopBarItem @click="emit('toggle-bar-item-type', 'control-center')">
         <CCMIcon :size="16" />
       </TopBarItem>
       <span class="shrink-0">{{ date }}</span>
@@ -80,5 +81,5 @@ function toggleWifiMenu() {
       /> -->
 
   <!-- Open this when clicking on Wifi button -->
-  <!-- <WifiMenu v-if="state.showWifiMenu" @toggle-wifi-menu="toggleWifiMenu" /> -->
+  <WifiMenu v-model:visible="state.showWifiMenu" btn-selector="#wifiBtn" />
 </template>
