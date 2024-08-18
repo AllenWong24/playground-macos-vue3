@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(['click'])
 
-const hide = props.hideOnMobile ? 'hidden sm:inline-flex' : 'inline-flex'
+const hide = computed(() => props.hideOnMobile ? 'hidden sm:inline-flex' : 'inline-flex')
 
 const hover = computed(() => (
   props.forceHover

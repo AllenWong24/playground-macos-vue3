@@ -85,32 +85,38 @@ html.dark .spotlight .spotlight-type {
 
 /* --------- slider --------- */
 
-.slider .rangeslider {
+.slider .slider-target {
   @apply bg-gray-300 w-full h-7 shadow-none m-0 rounded-r-full border-t border-r border-b border-transparent;
 }
 
-.slider .rangeslider .rangeslider__fill {
-  @apply bg-gray-100 shadow-none rounded-none;
+.slider .slider-target .slider-connects {
+  @apply rounded-none;
 }
 
-.slider .rangeslider .rangeslider__handle {
-  @apply border border-gray-300 outline-none h-7 w-7 text-white bg-white;
+.slider .slider-target .slider-connect {
+  @apply bg-gray-100 shadow-none rounded-l-none rounded-r-full;
+}
+
+.slider .slider-target .slider-handle {
+  @apply border border-gray-300 outline-none h-6.5 w-6.5 text-white bg-white;
   box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
+  right: 0;
+  top: 0;
 }
 
-.slider .rangeslider .rangeslider__handle::after {
+.slider .slider-target .slider-handle::after {
   @apply hidden;
 }
 
-html.dark .slider .rangeslider {
+html.dark .slider .slider-target {
   @apply bg-gray-600;
 }
 
-html.dark .slider .rangeslider .rangeslider__fill {
+html.dark .slider .slider-target .slider-connect {
   @apply bg-gray-800;
 }
 
-html.dark .slider .rangeslider .rangeslider__handle {
+html.dark .slider .slider-target .slider-handle {
   @apply border-gray-600;
 }
 

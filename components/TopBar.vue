@@ -25,6 +25,10 @@ function toggleAppleMenu() {
 function toggleWifiMenu() {
   state.showWifiMenu = !state.showWifiMenu
 }
+
+function toggleControlCenter() {
+  state.showControlCenter = !state.showControlCenter
+}
 </script>
 
 <template>
@@ -57,7 +61,11 @@ function toggleWifiMenu() {
       <TopBarItem @click="emit('toggle-bar-item-type', 'spotlight')">
         <Icon name="i-bi-search" size="17" />
       </TopBarItem>
-      <TopBarItem @click="emit('toggle-bar-item-type', 'control-center')">
+      <TopBarItem
+        id="controlCenterBtn"
+        :force-hover="state.showControlCenter"
+        @click="toggleControlCenter"
+      >
         <CCMIcon :size="16" />
       </TopBarItem>
       <span class="shrink-0">{{ date }}</span>
@@ -68,14 +76,7 @@ function toggleWifiMenu() {
   <AppleMenu v-model:visible="state.showAppleMenu" btn-selector="#appleMenu" />
 
   <!-- Open this when clicking on Control Center button -->
-  <!-- <ControlCenterMenu
-        v-if="state.showControlCenter"
-        :playing="audioState.playing"
-        toggle-audio="{controls.toggle}"
-        set-volume="{setAudioVolume}"
-        set-brightness="{setSiteBrightness}"
-        @toggle-control-center="toggleControlCenter"
-      /> -->
+  <ControlCenterMenu v-model:visible="state.showControlCenter" btn-selector="#controlCenterBtn" />
 
   <!-- Open this when clicking on Wifi button -->
   <WifiMenu v-model:visible="state.showWifiMenu" btn-selector="#wifiBtn" />

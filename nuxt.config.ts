@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  spaLoadingTemplate: false,
   devServer: {
     port: 9527,
   },
@@ -24,6 +25,7 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/index.css',
     '@unocss/reset/tailwind.css',
+    '@vueform/slider/themes/default.css',
   ],
   eslint: {
     config: {

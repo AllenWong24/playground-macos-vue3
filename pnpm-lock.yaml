@@ -11,6 +11,9 @@ importers:
       '@pinia/nuxt':
         specifier: ^0.5.1
         version: 0.5.1(rollup@4.14.2)(typescript@5.4.5)(vue@3.4.21(typescript@5.4.5))
+      '@vueform/slider':
+        specifier: ^2.1.10
+        version: 2.1.10
       '@vueuse/core':
         specifier: ^10.9.0
         version: 10.9.0(vue@3.4.21(typescript@5.4.5))
@@ -1357,6 +1360,9 @@ packages:
 
   '@vue/shared@3.4.21':
     resolution: {integrity: sha512-PuJe7vDIi6VYSinuEbUIQgMIRZGgM8e4R+G+/dQTk0X1NEdvgvvgv7m+rfmDH1gZzyA1OjjoWskvHlfRNfQf3g==}
+
+  '@vueform/slider@2.1.10':
+    resolution: {integrity: sha512-L2G3Ju51Yq6yWF2wzYYsicUUaH56kL1QKGVtimUVHT1K1ADcRT94xVyIeJpS0klliVEeF6iMZFbdXtHq8AsDHw==}
 
   '@vueuse/components@10.9.0':
     resolution: {integrity: sha512-BHQpA0yIi3y7zKa1gYD0FUzLLkcRTqVhP8smnvsCK6GFpd94Nziq1XVPD7YpFeho0k5BzbBiNZF7V/DpkJ967A==}
@@ -6410,6 +6416,8 @@ snapshots:
       vue: 3.4.21(typescript@5.4.5)
 
   '@vue/shared@3.4.21': {}
+
+  '@vueform/slider@2.1.10': {}
 
   '@vueuse/components@10.9.0(vue@3.4.21(typescript@5.4.5))':
     dependencies:
