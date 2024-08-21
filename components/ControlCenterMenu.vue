@@ -28,7 +28,14 @@ const audio = ref<HTMLAudioElement>()
 const { playing, volume } = useMediaControls(audio, {
   src: GLOBAL_CONFIG_MUSIC.audio,
 })
-const sliderVolume = computed(() => volume.value * 100)
+const sliderVolume = computed({
+  get() {
+    return volume.value * 100
+  },
+  set(value: number) {
+    volume.value = value / 100
+  },
+})
 </script>
 
 <template>

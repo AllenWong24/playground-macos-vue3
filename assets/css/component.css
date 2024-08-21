@@ -85,39 +85,25 @@ html.dark .spotlight .spotlight-type {
 
 /* --------- slider --------- */
 
-.slider .slider-target {
-  @apply bg-gray-300 w-full h-7 shadow-none m-0 rounded-r-full border-t border-r border-b border-transparent;
+.slider {
+  --slider-bg: #D2D5DA;
+  --slider-radius: 0;
+  --slider-connect-bg: #F3F4F6;
+  --slider-height: 1.5rem;
+  --slider-handle-width: 1.5rem;
+  --slider-handle-height: 1.5rem;
+  --slider-handle-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
+  --slider-handle-shadow-active: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
+  --slider-handle-ring-width: 0;
 }
 
-.slider .slider-target .slider-connects {
-  @apply rounded-none;
+.slider .slider-horizontal .slider-handle {
+  top: calc((var(--slider-handle-height, 16px) - var(--slider-height, 6px)) / 2* -1);
 }
 
-.slider .slider-target .slider-connect {
-  @apply bg-gray-100 shadow-none rounded-l-none rounded-r-full;
-}
-
-.slider .slider-target .slider-handle {
-  @apply border border-gray-300 outline-none h-6.5 w-6.5 text-white bg-white;
-  box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
-  right: 0;
-  top: 0;
-}
-
-.slider .slider-target .slider-handle::after {
-  @apply hidden;
-}
-
-html.dark .slider .slider-target {
-  @apply bg-gray-600;
-}
-
-html.dark .slider .slider-target .slider-connect {
-  @apply bg-gray-800;
-}
-
-html.dark .slider .slider-target .slider-handle {
-  @apply border-gray-600;
+html.dark .slider {
+  --slider-bg: #4D5562;
+  --slider-connect-bg: #232B39;
 }
 
 /*
