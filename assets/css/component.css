@@ -89,9 +89,9 @@ html.dark .spotlight .spotlight-type {
   --slider-bg: #D2D5DA;
   --slider-radius: 0;
   --slider-connect-bg: #F3F4F6;
-  --slider-height: 1.5rem;
-  --slider-handle-width: 1.5rem;
-  --slider-handle-height: 1.5rem;
+  --slider-height: 1.25rem;
+  --slider-handle-width: 1.25rem;
+  --slider-handle-height: 1.25rem;
   --slider-handle-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
   --slider-handle-shadow-active: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
   --slider-handle-ring-width: 0;
