@@ -48,7 +48,7 @@ function toggleControlCenter() {
     </div>
     <div class="flex-center-v flex-row justify-end space-x-2">
       <TopBarItem hide-on-mobile>
-        <!-- <Battery /> -->
+        <Battery />
       </TopBarItem>
       <TopBarItem
         id="wifiBtn"

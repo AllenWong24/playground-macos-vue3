@@ -23,7 +23,7 @@ export default defineConfig({
     ['cc-text', 'text-xs text-gray-500 dark:text-gray-400'],
     ['cc-mode', 'text-gray-700 bg-gray-400 bg-opacity-25 rounded-full p-2 dark:(text-gray-200 bg-gray-500 bg-opacity-25)'],
     ['cc-grid', 'shadow-base bg-gray-200 bg-opacity-80 rounded-xl backdrop-blur-2xl dark:(bg-gray-700 bg-opacity-80)'],
-    ['battery-level', 'absolute rounded-xs h-2 top-1/2 -mt-1 ml-0.5 left-0'],
+    ['battery-level', 'absolute rounded-xs h-2 top-1/2 -mt-1 mr-1 right-0'],
   ],
   rules: [
     ['shadow-base', { 'box-shadow': '0px 0px 5px 0px rgba(0, 0, 0, 0.3)' }],
