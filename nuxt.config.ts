@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@vueuse/nuxt',
     'nuxt-lodash',
+    'motion-v/nuxt',
   ],
   imports: {
     dirs: ['configs'],

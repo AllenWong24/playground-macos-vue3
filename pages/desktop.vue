@@ -258,12 +258,12 @@ function openApp(id: string): void {
     <!-- <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" /> -->
 
     <!-- Dock -->
-    <!-- <Dock
+    <Dock
       :show-apps="state.showApps"
       :show-launchpad="state.showLaunchpad"
       :hide="state.hideDockAndTopbar"
       @open="openApp"
       @toggle-launchpad="toggleLaunchpad"
-    /> -->
+    />
   </div>
 </template>
