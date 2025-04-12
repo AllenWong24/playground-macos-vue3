@@ -7,7 +7,6 @@ interface Props {
   img: string
   mouseX: MotionValue
   desktop: boolean
-  openApp: (id: string) => void
   isOpen: boolean
   link?: string
   dockSize: number
@@ -16,16 +15,25 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const emit = defineEmits<{
+  (e: 'openApp', id: string): void
+}>()
+
 const imgRef = ref<HTMLImageElement | null>(null)
 const { width } = useDockHoverAnimation(props.mouseX, imgRef, props.dockSize, props.dockMag)
 const { width: winWidth } = useWindowSize()
+
+function onClick() {
+  if (props.desktop || props.id === 'launchpad')
+    emit('openApp', props.id)
+}
 </script>
 
 <template>
   <li
     :id="`dock-${id}`"
     class="flex-center-v flex-col justify-end mb-1 transition duration-150 ease-in origin-bottom"
-    @click="desktop || id === 'launchpad' ? () => openApp(id) : () => {}"
+    @click="onClick"
   >
     <p
       class="tooltip absolute px-3 py-1 rounded-md text-sm"

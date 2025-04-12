@@ -1,25 +1,25 @@
 <script setup lang="ts">
 interface Props {
-  open: (id: string) => void
   showApps: {
     [key: string]: boolean
   }
   showLaunchpad: boolean
-  toggleLaunchpad: (target: boolean) => void
   hide: boolean
 }
 
 const props = defineProps<Props>()
 
+const emit = defineEmits(['open', 'toggleLaunchpad'])
+
 const { size: dockSize, mag: dockMag } = storeToRefs(useDockStore())
 
 function openApp(id: string) {
   if (id === 'launchpad') {
-    props.toggleLaunchpad(!props.showLaunchpad)
+    emit('toggleLaunchpad', !props.showLaunchpad)
   }
   else {
-    props.toggleLaunchpad(false)
-    props.open(id)
+    emit('toggleLaunchpad', false)
+    emit('open', id)
   }
 }
 
@@ -48,11 +48,11 @@ const mouseX = useMotionValue<number | null>(null)
           :img="app.img"
           :mouse-x="mouseX"
           :desktop="app.desktop"
-          :open-app="openApp"
           :is-open="app.desktop && showApps[app.id]"
           :link="app.link"
           :dock-size="dockSize"
           :dock-mag="dockMag"
+          @open-app="openApp"
         />
       </template>
     </ul>

@@ -255,7 +255,7 @@ function openApp(id: string): void {
     /> -->
 
     <!-- Launchpad -->
-    <!-- <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" /> -->
+    <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" />
 
     <!-- Dock -->
     <Dock
