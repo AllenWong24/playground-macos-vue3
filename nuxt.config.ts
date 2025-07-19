@@ -1,3 +1,5 @@
+import vueJsx from '@vitejs/plugin-vue-jsx'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   spaLoadingTemplate: false,
@@ -22,6 +24,7 @@ export default defineNuxtConfig({
   ],
   imports: {
     dirs: ['configs'],
+    presets: [],
   },
   css: [
     '~/assets/css/index.css',
@@ -33,5 +36,10 @@ export default defineNuxtConfig({
       stylistic: true,
       standalone: false,
     },
+  },
+  vite: {
+    plugins: [
+      vueJsx(),
+    ],
   },
 })

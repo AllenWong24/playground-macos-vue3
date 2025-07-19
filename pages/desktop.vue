@@ -246,13 +246,12 @@ function openApp(id: string): void {
     </div> -->
 
     <!-- Spotlight -->
-    <!-- <Spotlight
+    <Spotlight
       v-if="state.spotlight"
-      :btn-ref="spotlightBtnRef"
       @open-app="openApp"
       @toggle-launchpad="toggleLaunchpad"
       @toggle-spotlight="toggleSpotlight"
-    /> -->
+    />
 
     <!-- Launchpad -->
     <Launchpad :show="state.showLaunchpad" @toggle-launchpad="toggleLaunchpad" />
